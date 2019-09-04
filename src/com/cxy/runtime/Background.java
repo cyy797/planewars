@@ -3,6 +3,7 @@ package com.cxy.runtime;
 import com.cxy.base.BaseSprite;
 import com.cxy.base.Drawable;
 import com.cxy.base.Moveable;
+import com.cxy.constant.FrameConstant;
 import com.cxy.util.ImageMap;
 
 import java.awt.*;
@@ -12,7 +13,7 @@ public class Background extends BaseSprite implements Moveable, Drawable {
     private Image image;
 
     public Background() {
-        this(0,0, ImageMap.get("bg01"));
+        this(0, FrameConstant.FRAME_HEIGHT - ImageMap.get("bg01").getHeight(null), ImageMap.get("bg01"));
     }
 
     public Background(int x, int y, Image bgImage) {
@@ -22,7 +23,8 @@ public class Background extends BaseSprite implements Moveable, Drawable {
 
     @Override
     public void move() {
-        setY(getY()- 1);
+
+                                     setY(getY()+ FrameConstant.GAME_SPEED);
     }
 
     @Override
